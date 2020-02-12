@@ -1,23 +1,26 @@
 {
-  "name": "recetas",
+  "name": "platzi-recetas",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1"
+    "react": "^16.4.1",
+    "react-app-rewire-workbox": "^2.0.1",
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.4.1",
+    "react-ga": "^2.7.0",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.1",
+    "serve": "^11.3.0",
+    "workbox-webpack-plugin": "^3.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "dev": "react-app-rewired start",
+    "start": "serve ./build -s -p ${PORT:-5000}",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-scripts eject",
+    "serve:dev": "yarn build && yarn global add serve && serve -s build"
   },
   "browserslist": {
     "production": [
